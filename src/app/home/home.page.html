@@ -1,20 +1,85 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    
     <ion-title>
-      Blank
+     <b>Base de datos de Alumnos/as</b> 
     </ion-title>
   </ion-toolbar>
 </ion-header>
+<ion-content>
+<ion-content padding>
+  <ion-item>
+    <ion-label><i>Nombre: </i></ion-label>
+    <ion-input [(ngModel)]="alumnadoEditando.nombre"></ion-input>
+  </ion-item>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-item>
+    <ion-label><i>Apellidos:</i> </ion-label>
+    <ion-input [(ngModel)]="alumnadoEditando.apellidos"></ion-input>
+  </ion-item>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-item>
+  <ion-label><i>Fecha de nacimiento:</i></ion-label>
+    <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YY" style="width: 75%" [(ngModel)]="alumnadoEditando.fechaNacimiento"></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label><i>Curso:</i> </ion-label>
+    <ion-input [(ngModel)]="alumnadoEditando.curso"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label><i>Antigüedad:</i> </ion-label>
+    <ion-input [(ngModel)]="alumnadoEditando.antiguedad"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label><i>Asignaturas:</i> </ion-label>
+    <ion-input [(ngModel)]="alumnadoEditando.asignaturas"></ion-input>
+  </ion-item>
+
+    <ion-list>
+      <ion-item>
+        <ion-label style="width:10%"><i>Repetidor</i></ion-label>
+        <ion-checkbox [(ngModel)]="alumnadoEditando.repetidor"></ion-checkbox>
+      </ion-item>
+    </ion-list>
+
+  <ion-item>
+    <ion-label><b>Total a pagar:</b> </ion-label>
+    <ion-input [(ngModel)]="alumnadoEditando.total"></ion-input>
+  </ion-item>
+
+
+  
+  <ion-button (click)="clicBotonInsertar()">Añadir alumno/a</ion-button>
+        <!-- Botones de acción -->
+        <ion-button (click)="clicBotonBorrar()">Borrar alumno/a</ion-button>
+        <ion-button (click)="clicBotonModificar()">Modificar alumno/a</ion-button>
+
+  <h1><b>Lista de Alumnos/as</b></h1>
+  <ion-list>
+    <ion-item *ngFor="let documentAlumnado of arrayColeccionAlumnado" (click)="selecAlumnado(documentAlumnado)">
+      <ion-grid>
+        <ion-row>
+          <h2>{{documentAlumnado.data.foto}}{{documentAlumnado.data.foto}}</h2>
+          <h2 style="color:blue">{{documentAlumnado.data.foto}}{{documentAlumnado.data.nombre}}</h2>
+        </ion-row>
+        <ion-row>
+          <p >{{documentAlumnado.data.apellidos}}</p>
+        </ion-row>
+        <ion-row>
+          <p> <b>Asignaturas:</b> {{documentAlumnado.data.asignaturas}} </p>
+        </ion-row>
+        <ion-row>
+          <p><b>Total:</b> {{documentAlumnado.data.total}} €</p>
+        </ion-row>
+      </ion-grid>
+
+      
+    </ion-item>
+
+  </ion-list>
 </ion-content>
+</ion-content>
+
