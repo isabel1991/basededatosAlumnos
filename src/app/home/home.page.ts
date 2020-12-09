@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FirestoreService } from '../firestore.service';
 import { Alumnado } from '../alumnado';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -18,12 +19,21 @@ export class HomePage {
     data: {} as Alumnado
    }];
 
-  constructor(private firestoreService: FirestoreService) {
+  
+
+
+
+  constructor(private firestoreService: FirestoreService,private router:Router) {
     // Crear una tarea vacía
     this.alumnadoEditando = {} as Alumnado;
     this.alumnadoEditando.repetidor=false;
     this.obtenerListaAlumnado();
+    
 
+  }
+
+  navigateToAlumno() {
+    this.router.navigate(["/alumno/", this.idAlumSelec]);
   }
 
 

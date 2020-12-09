@@ -56,7 +56,9 @@
         <!-- Botones de acción -->
         <ion-button (click)="clicBotonBorrar()">Borrar alumno/a</ion-button>
         <ion-button (click)="clicBotonModificar()">Modificar alumno/a</ion-button>
-
+        <ion-button color="primary" (click)="navigateToAlumno()">Detalles del alumno/a</ion-button>
+         
+  
   <h1><b>Lista de Alumnos/as</b></h1>
   <ion-list>
     <ion-item *ngFor="let documentAlumnado of arrayColeccionAlumnado" (click)="selecAlumnado(documentAlumnado)">
