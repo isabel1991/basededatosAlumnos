@@ -6,66 +6,30 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content>
+
 <ion-content padding>
-  <ion-item>
-    <ion-label><i>Nombre: </i></ion-label>
-    <ion-input [(ngModel)]="alumnadoEditando.nombre"></ion-input>
-  </ion-item>
 
   <ion-item>
-    <ion-label><i>Apellidos:</i> </ion-label>
-    <ion-input [(ngModel)]="alumnadoEditando.apellidos"></ion-input>
+    <ion-label><i>Foto: </i></ion-label>
+    <ion-input [(ngModel)]="alumnadoEditando.foto"></ion-input>
   </ion-item>
 
-  <ion-item>
-  <ion-label><i>Fecha de nacimiento:</i></ion-label>
-    <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YY" style="width: 75%" [(ngModel)]="alumnadoEditando.fechaNacimiento"></ion-datetime>
-  </ion-item>
 
-  <ion-item>
-    <ion-label><i>Curso:</i> </ion-label>
-    <ion-input [(ngModel)]="alumnadoEditando.curso"></ion-input>
-  </ion-item>
+
+ 
   
-  <ion-item>
-    <ion-label><i>Antigüedad:</i> </ion-label>
-    <ion-input [(ngModel)]="alumnadoEditando.antiguedad"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label><i>Asignaturas:</i> </ion-label>
-    <ion-input [(ngModel)]="alumnadoEditando.asignaturas"></ion-input>
-  </ion-item>
-
-    <ion-list>
-      <ion-item>
-       <ion-label position="fixed"> <i>Repetidor</i>  </ion-label>
-        <ion-checkbox [(ngModel)]="alumnadoEditando.repetidor"></ion-checkbox>
-      </ion-item>
-    </ion-list>
-
-  <ion-item>
-    <ion-label><b>Total a pagar:</b> </ion-label>
-    <ion-input [(ngModel)]="alumnadoEditando.total"></ion-input>
-  </ion-item>
-
-
-  
-  <ion-button (click)="clicBotonInsertar()">Añadir alumno/a</ion-button>
         <!-- Botones de acción -->
-        <ion-button (click)="clicBotonBorrar()">Borrar alumno/a</ion-button>
-        <ion-button (click)="clicBotonModificar()">Modificar alumno/a</ion-button>
-        <ion-button color="primary" (click)="navigateToAlumno()">Detalles del alumno/a</ion-button>
+        <!-- <ion-button (click)="clicBotonBorrar()">Borrar alumno/a</ion-button>
+        <ion-button (click)="clicBotonModificar()">Modificar alumno/a</ion-button> -->
+        <!-- <ion-button color="primary" (click)="navigateToAlumno()">Detalles del alumno/a</ion-button> -->
          
   
   <h1><b>Lista de Alumnos/as</b></h1>
   <ion-list>
-    <ion-item *ngFor="let documentAlumnado of arrayColeccionAlumnado" (click)="selecAlumnado(documentAlumnado)">
+    <ion-item *ngFor="let documentAlumnado of arrayColeccionAlumnado" (click)="selecAlumnado(documentAlumnado)+ navigateToAlumno()">
       <ion-grid>
         <ion-row>
-          <h2>{{documentAlumnado.data.foto}}{{documentAlumnado.data.foto}}</h2>
-          <h2 style="color:blue">{{documentAlumnado.data.foto}}{{documentAlumnado.data.nombre}}</h2>
+          <h2 style="color:blue">{{documentAlumnado.data.nombre}}</h2>
         </ion-row>
         <ion-row>
           <p >{{documentAlumnado.data.apellidos}}</p>
@@ -82,6 +46,15 @@
     </ion-item>
 
   </ion-list>
+
+
+   <!-- fab placed to the (vertical) al fondo and end -->
+   <ion-fab vertical="bottom" horizontal="end" slot="fixed" padding>
+    <ion-fab-button (click)="navigateToNuevo()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
 </ion-content>
-</ion-content>
+
 

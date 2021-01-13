@@ -8,5 +8,57 @@
   </ion-toolbar>
 </ion-header>
 <ion-content >
- My ID: {{id}}
+<br>
+<ion-item>
+  <ion-img [src]=" document.data.foto" style="height: auto; max-width: 23vh;"></ion-img>   
+</ion-item>
+<ion-item>
+  <ion-label>Nombre: </ion-label>
+  <ion-input [(ngModel)]=" document.data.nombre "></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label>Apellidos: </ion-label>
+  <ion-input [(ngModel)]=" document.data.apellidos "></ion-input> 
+</ion-item>
+
+<ion-item>
+  <ion-label>Asignaturas: </ion-label>
+  <ion-input [(ngModel)]="document.data.asignaturas "></ion-input> 
+</ion-item>
+
+<ion-item>
+  <ion-label><i>Curso:</i> </ion-label>
+  <ion-input [(ngModel)]=" document.data.curso"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label><i>Antigüedad:</i> </ion-label>
+  <ion-input [(ngModel)]=" document.data.antiguedad"></ion-input>
+</ion-item>
+
+
+ <ion-item>
+<ion-label>Fecha de nacimiento:</ion-label>
+    <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YY" style="width: 75%" [(ngModel)]=" document.data.fechaNacimiento"></ion-datetime>
+</ion-item>
+
+<ion-list>
+  <ion-item>
+   <ion-label position="fixed"> <i>Repetidor</i>  </ion-label>
+    <ion-checkbox [(ngModel)]=" document.data.repetidor "></ion-checkbox>
+  </ion-item>
+</ion-list>
+
+<ion-item>
+  <ion-label><b>Total a pagar:</b> </ion-label>
+  <ion-input [(ngModel)]="document.data.total"> €</ion-input>
+</ion-item>
+
+ <!-- Botones de acción -->
+ <ion-button (click)="clicBotonBorrar()" *ngIf="id!='nuevo'">Borrar alumno/a</ion-button>
+ <ion-button (click)="clicBotonModificar()" *ngIf="id!='nuevo'">Modificar alumno/a</ion-button>
+ <ion-button (click)="clicBotonInsertar()" *ngIf="id=='nuevo'">Guardar</ion-button>
+
+
 </ion-content>

@@ -13,6 +13,7 @@ export class HomePage {
   alumnadoEditando: Alumnado;  
 
   idAlumSelec: string;
+  
 
   arrayColeccionAlumnado: any = [{
     id: "",
@@ -34,6 +35,10 @@ export class HomePage {
 
   navigateToAlumno() {
     this.router.navigate(["/alumno/", this.idAlumSelec]);
+  }
+
+  navigateToNuevo() {
+    this.router.navigate(["/alumno/", "nuevo"]);
   }
 
 
@@ -65,8 +70,8 @@ export class HomePage {
 
   selecAlumnado(alumSelec) {
     console.log("Alumno/a seleccionado/a: ");
-    console.log(alumSelec);
     this.idAlumSelec = alumSelec.id;
+    this.alumnadoEditando.foto = alumSelec.data.foto;
     this.alumnadoEditando.nombre = alumSelec.data.nombre;
     this.alumnadoEditando.apellidos = alumSelec.data.apellidos;
     this.alumnadoEditando.fechaNacimiento = alumSelec.data.fechaNacimiento;
