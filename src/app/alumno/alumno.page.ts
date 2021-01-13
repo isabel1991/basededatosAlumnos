@@ -70,21 +70,21 @@ export class AlumnoPage implements OnInit {
 
 }
 
+//ESTO ES LO QUE TENÍA QUE BORRAR -- CORREGIDO 
+// import { NgModule } from "@angular/core";
+// import { Alumnado } from '../alumnado';
 
-import { NgModule } from "@angular/core";
-import { Alumnado } from '../alumnado';
 
+// const routes: Routes = [
+//   { path: "", redirectTo: "home", pathMatch: "full" },
+//   { path: "home", loadChildren: "./home/home.module#HomePageModule" },
+//   { path: "alumno/:id", loadChildren: "./alumno/alumno.module#AlumnoPageModule" }
+// ];
 
-const routes: Routes = [
-  { path: "", redirectTo: "home", pathMatch: "full" },
-  { path: "home", loadChildren: "./home/home.module#HomePageModule" },
-  { path: "alumno/:id", loadChildren: "./alumno/alumno.module#AlumnoPageModule" }
-];
-
-@NgModule({
-  imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
-  ],
-  exports: [RouterModule]
-})
-export class AppRoutingModule {}
+// @NgModule({
+//   imports: [
+//     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+//   ],
+//   exports: [RouterModule]
+// })
+// export class AppRoutingModule {}
