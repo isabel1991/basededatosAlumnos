@@ -17,7 +17,10 @@
 }
 
 
-
+*{
+  font-family:  sans-serif;
+  box-align: justify;
+}
 #container strong {
   font-size: 20px;
   line-height: 26px;
@@ -32,6 +35,11 @@
   margin: 0;
 }
 
+  .map {
+      font-size: 100px;
+  }
+
+
 #container a {
   text-decoration: none;
 }
@@ -42,4 +50,18 @@
 
 @media (min-width: 800px) {
   p { font-size: 24px; }
+}
+
+.span{
+  @media screen and (orientation: landscape){
+   
+    
+  }
+  @media screen and (orientation: portrait){
+    display: none;
+    visibility: hidden;
+    font-size: 0;
+    
+  }
+
 }

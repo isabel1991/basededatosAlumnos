@@ -41,6 +41,17 @@ export class HomePage {
     this.router.navigate(["/alumno/", "nuevo"]);
   }
 
+  navigateToHome() {
+    this.router.navigate(["/home/"]);
+  }
+
+  navigateToAbout() {
+    this.router.navigate(["/about-us/"]);
+  }
+
+  navigateToMap() {
+    this.router.navigate(["/map/"]);
+  }
 
   clicBotonInsertar() {
     this.firestoreService.insertar("alumnados", this.alumnadoEditando).then(() => {

@@ -12,7 +12,17 @@ const routes: Routes = [
   {
     path: "alumno/:id", loadChildren: "./alumno/alumno.module#AlumnoPageModule" 
   },
+  {
+    path: 'about-us',
+    loadChildren: () => import('./about-us/about-us.module').then( m => m.AboutUsPageModule)
+  },
+  {
+    path: 'map',
+    loadChildren: () => import('./map/map.module').then( m => m.MapPageModule)
+  },
 ];
+
+
 
 @NgModule({
   imports: [
@@ -20,4 +30,6 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
+
+
 export class AppRoutingModule { }
