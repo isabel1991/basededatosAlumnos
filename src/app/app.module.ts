@@ -15,6 +15,9 @@ import { environment } from '../environments/environment';
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
 import { AngularFireStorageModule} from '@angular/fire/storage';
 
+
+
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],

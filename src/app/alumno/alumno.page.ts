@@ -21,7 +21,8 @@ export class AlumnoPage implements OnInit {
   
   document: any = {
     id: "",
-    data: {} as Alumnado
+    data: {} as Alumnado,
+    
   };
   constructor(private activatedRoute: ActivatedRoute,public alertController: AlertController, private firestoreService: FirestoreService, private router:Router, 
     private loadingController: LoadingController, private toastController: ToastController, private imagePicker: ImagePicker) { }
@@ -54,39 +55,7 @@ export class AlumnoPage implements OnInit {
     })
   }
 
-  async clicAlertConfirm() {
-    const alert = await this.alertController.create({
-      cssClass: 'my-custom-class',
-      header: 'Confirme',
-      message: '¿Desea borrar a '+ this.document.data.nombre+ "?",
-      buttons: [
-        {
-          text: 'Cancel',
-          role: 'cancel',
-          cssClass: 'secondary',
-          handler: (blah) => {
-            console.log('Confirm Cancel: blah');
-            this.router.navigate(["/home/"]);
-            
-          }
-        }, {
-          text: 'OK',
-          handler: () => {
-            this.firestoreService.borrar("alumnados", this.id).then(() => {
-              // Limpiar datos de pantalla
-              this.document.data = {} as Alumnado;
-              this.router.navigate(["/home/"]);
-            console.log('¿Seguro que desea borrar a' + this.document.data.nombre);
-            })
-          }
-        
-          }
-    
-      ]
-    });
 
-    await alert.present();
-  }
 
 
   // clicBotonBorrar() {
@@ -152,6 +121,11 @@ export class AlumnoPage implements OnInit {
                     snapshot.ref.getDownloadURL()
                     .then(downloadURL => {
                       console.log("downloadURL:"+downloadURL);
+                      if(this.document.data.foto!= null){
+                        this.deleteFile(this.document.data.foto);
+                      }
+                      //Aquí guardamos la url en el campo que nos interesa
+                      this.document.data.foto = downloadURL;
                       toast.present();
                       loading.dismiss();
                     })
@@ -168,6 +142,7 @@ export class AlumnoPage implements OnInit {
         });
       
     }
+  
 
     async deleteFile(fileURL){
       const toast = await this.toastController.create({
@@ -183,6 +158,50 @@ export class AlumnoPage implements OnInit {
     }
   
 
+    async clicAlertConfirm() {
+      const alert = await this.alertController.create({
+        cssClass: 'my-custom-class',
+        header: 'Confirme',
+        message: '¿Desea borrar a '+ this.document.data.nombre+ "?",
+        buttons: [
+          {
+            text: 'Cancel',
+            role: 'cancel',
+            cssClass: 'secondary',
+            handler: (blah) => {
+              console.log('Confirm Cancel: blah');
+              this.router.navigate(["/home/"]);
+              
+            }
+          }, {
+            
+            text: 'OK',        
+            handler: () => {
+              console.log("FOTO: "+ this.document.data.foto);
+              console.log("Nombre: "+ this.document.data.nombre);
+              if(this.document.data.foto!= null){
+                this.deleteFile(this.document.data.foto);
+                
+              }
+              this.firestoreService.borrar("alumnados", this.id).then(() => {
+                // Limpiar datos de pantalla
+               // console.log("FOTO: "+ this.document.data.foto);
+                
+
+                this.document.data = {} as Alumnado;
+               
+                this.router.navigate(["/home/"]);
+              
+              })
+            }
+          
+            }
+      
+        ]
+      });
+  
+      await alert.present();
+    }
 }
 
 

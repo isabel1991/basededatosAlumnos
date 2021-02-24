@@ -8,6 +8,9 @@ import { AlumnoPageRoutingModule } from './alumno-routing.module';
 
 import { AlumnoPage } from './alumno.page';
 
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+
+
 @NgModule({
   imports: [
     CommonModule,

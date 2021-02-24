@@ -11,7 +11,7 @@
 <br>
 <ion-item>
   <ion-button color="primary" type="File" (click)="uploadImagePicker()">Examinar</ion-button>
-  <ion-img [src]=" document.data.foto" style="height: auto; max-width: 23vh;"></ion-img>   
+  <ion-img [src]="document.data.foto" style="height: auto; max-width: 23vh;"></ion-img>   
 </ion-item>
 <ion-item>
   <ion-label>Nombre: </ion-label>
@@ -60,6 +60,7 @@
  <ion-button (click)="clicAlertConfirm()" *ngIf="id!='nuevo'">Borrar alumno/a</ion-button>
  <ion-button (click)="clicBotonModificar()" *ngIf="id!='nuevo'">Modificar alumno/a</ion-button>
  <ion-button (click)="clicBotonInsertar()" *ngIf="id=='nuevo'">Guardar</ion-button>
+ <ion-button (click)="clicEmail()" *ngIf="id!='nuevo'">Correo</ion-button>
  <ion-footer>
 
 
