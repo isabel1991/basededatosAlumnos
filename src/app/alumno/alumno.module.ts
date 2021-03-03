@@ -16,7 +16,8 @@ import { SocialSharing } from '@ionic-native/social-sharing/ngx';
     CommonModule,
     FormsModule,
     IonicModule,
-    AlumnoPageRoutingModule
+    AlumnoPageRoutingModule,
+    SocialSharing
   ],
   declarations: [AlumnoPage]
 })

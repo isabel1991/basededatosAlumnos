@@ -61,10 +61,11 @@
  <ion-button (click)="clicBotonModificar()" *ngIf="id!='nuevo'">Modificar alumno/a</ion-button>
  <ion-button (click)="clicBotonInsertar()" *ngIf="id=='nuevo'">Guardar</ion-button>
  <ion-button (click)="clicEmail()" *ngIf="id!='nuevo'">Correo</ion-button>
- <ion-footer>
+
 
 
   <!-- Segment in a toolbar -->
+  <ion-footer>
   <ion-toolbar>
     <ion-segment  (ionChange)="segmentChanged($event)" >
       <ion-segment-button value="home" color="primary" (click)="navigateToHome()" *ngIf="id =='home'" >
